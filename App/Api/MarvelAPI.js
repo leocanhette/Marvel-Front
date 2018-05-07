@@ -8,7 +8,7 @@ const marvel = api.createClient({
 module.exports = {
 
   getHeroList(nameHeroSearch) {
-    const heroListReturn = [];
+    var heroListReturn = [];
     let response = null;
 
     if (nameHeroSearch) response = marvel.characters.findNameStartsWith(nameHeroSearch);
@@ -22,11 +22,11 @@ module.exports = {
           let description = 'Description not found.';
           let urlImage = 'Images/image_not_available.jpg';
 
-          if (item.name) { name = item.name; }
+          if (item.name) name = item.name;
 
-          if (item.description) { description = item.description; }
+          if (item.description) description = item.description;
 
-          if (item.thumbnail) { urlImage = `${item.thumbnail.path}.${item.thumbnail.extension}`; }
+          if (item.thumbnail) urlImage = `${item.thumbnail.path}.${item.thumbnail.extension}`;
 
           heroListReturn.push({
             id,
@@ -43,50 +43,5 @@ module.exports = {
     });
   },
 
-  getHeroListMOCK(nameHeroSearch) {
-    const heroListReturn = [
-      {
-        id: 1,
-        name: 'Wolwerine',
-        description: 'Teste descrição',
-        urlImg: 'https://i.pinimg.com/originals/4a/18/97/4a18971aaccf70f703236a6aecacd137.jpg',
-      },
-      {
-        id: 2,
-        name: 'Homem Aranha',
-        description: 'Teste descrição',
-        urlImg: 'https://vignette.wikia.nocookie.net/mundodosquadrinhos/images/7/70/Homem-aranha-2_baixa.jpg/revision/latest?cb=20110626235316&path-prefix=pt-br',
-      },
-      {
-        id: 3,
-        name: 'Capitão América',
-        description: 'Teste descrição',
-        urlImg: 'http://cliquetando.xpg.com.br/wp-content/uploads/2014/04/capit%C3%A3o-america.jpg',
-      },
-      {
-        id: 4,
-        name: 'Hulk',
-        description: 'Teste descrição',
-        urlImg: 'https://i.pinimg.com/originals/2f/d2/79/2fd2798a5765a31537e94f2f1c4cb82c.jpg',
-      },
-      {
-        id: 5,
-        name: 'Homem de Ferro',
-        description: 'Teste descrição',
-        urlImg: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAFius2wq5_ihzB12qCTPdmfuc4LlkdB70zYQriSIi-hKu6doe',
-      },
-    ];
-
-    if (nameHeroSearch) {
-      heroListReturn.push({
-        id: 6,
-        name: nameHeroSearch,
-        description: 'Teste descrição',
-        urlImg: 'http://www.apicius.es/wp-content/uploads/2012/07/IMG-20120714-009211.jpg',
-      });
-    }
-
-    return heroListReturn;
-  },
 };
 

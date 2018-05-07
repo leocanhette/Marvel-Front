@@ -6,7 +6,6 @@ var Home = React.createClass({
 
     render() {
         return (
-
             <div>
                 <NavComponent />
                 <hr />

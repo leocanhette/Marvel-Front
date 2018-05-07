@@ -1,5 +1,3 @@
-// Webpack configuration provided by LearnCode.academy (https://www.youtube.com/user/learncodeacademy)
-
 const path = require('path');
 
 module.exports = {
@@ -23,7 +21,7 @@ module.exports = {
   output: {
     path: `${__dirname}/Public/js/`,
     publicPath: '/js/',
-    filename: 'app.js',
+    filename: 'app.min.js',
   },
 
   resolve: {
