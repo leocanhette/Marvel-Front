@@ -1,11 +1,10 @@
 // Webpack configuration provided by LearnCode.academy (https://www.youtube.com/user/learncodeacademy)
-const debug = process.env.NODE_ENV !== 'production';
-const webpack = require('webpack');
+
 const path = require('path');
 
 module.exports = {
   context: __dirname,
-  devtool: debug ? 'inline-sourcemap' : null,
+  devtool: 'cheap-module-eval-source-map',
   entry: './App/app.jsx',
 
   module: {
@@ -24,7 +23,7 @@ module.exports = {
   output: {
     path: `${__dirname}/Public/js/`,
     publicPath: '/js/',
-    filename: 'app.min.js',
+    filename: 'app.js',
   },
 
   resolve: {
@@ -49,9 +48,4 @@ module.exports = {
     tls: 'empty',
   },
 
-  plugins: debug ? [] : [
-    new webpack.optimize.DedupePlugin(),
-    new webpack.optimize.OccurenceOrderPlugin(),
-    new webpack.optimize.UglifyJsPlugin({ mangle: false, sourcemap: false }),
-  ],
 };
