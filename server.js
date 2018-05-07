@@ -1,18 +1,19 @@
-var express = require('express');
-var app = express();
+const express = require('express');
 
-var PORT = process.env.PORT || '3003';
+const app = express();
 
-app.use(function (req, res, next) {
-    if (req.headers['x-forwarded-proto'] === 'https') {
-        res.redirect('http://' + req.hostname + req.url);
-    } else {
-        next();
-    }
+const PORT = process.env.PORT || '3003';
+
+app.use((req, res, next) => {
+  if (req.headers['x-forwarded-proto'] === 'https') {
+    res.redirect(`http://${req.hostname}${req.url}`);
+  } else {
+    next();
+  }
 });
 
 app.use(express.static('Public'));
 
-app.listen(PORT, function () {
-    console.log('API is running on port ' + PORT);
+app.listen(PORT, () => {
+  console.log(`API is running on port ${PORT}`);
 });

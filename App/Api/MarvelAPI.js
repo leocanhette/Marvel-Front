@@ -8,7 +8,7 @@ const marvel = api.createClient({
 module.exports = {
 
   getHeroList(nameHeroSearch) {
-    var heroListReturn = [];
+    const heroListReturn = [];
     let response = null;
 
     if (nameHeroSearch) response = marvel.characters.findNameStartsWith(nameHeroSearch);
