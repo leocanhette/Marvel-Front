@@ -5,6 +5,7 @@
   "main": "App/app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server --inline --hot --history-api-fallback --content-base Public",
     "dev": "webpack-dev-server --inline --hot --history-api-fallback --content-base Public",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
